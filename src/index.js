@@ -9,5 +9,20 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+import { Game } from './Game'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+const $startButton = $(".start-game")
+const $playerOne = $(".player-one").val()
+const $playerTwo = $(".player-two").val()
+const $playerThree = $(".player-three").val()
+$startButton.click(() => startGame())
+
+let game;
+
+const startGame = () => {
+  game = new Game([$playerOne, $playerTwo, $playerThree])
+  game.generateGame()
+  console.log(game)
+}
+

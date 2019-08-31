@@ -13,15 +13,17 @@ import { Game } from './Game'
 
 
 const $startButton = $(".start-game")
-const $playerOne = $(".player-one").val()
-const $playerTwo = $(".player-two").val()
-const $playerThree = $(".player-three").val()
+const $playerOne = $(".player-one")
+const $playerTwo = $(".player-two")
+const $playerThree = $(".player-three")
 $startButton.click(() => startGame())
 
+
+let gameData; // Fetch for game data 
 let game;
 
 const startGame = () => {
-  game = new Game([$playerOne, $playerTwo, $playerThree])
+  game = new Game([$playerOne.val(), $playerTwo.val(), $playerThree.val()], gameData)
   game.generateGame()
   console.log(game)
 }
